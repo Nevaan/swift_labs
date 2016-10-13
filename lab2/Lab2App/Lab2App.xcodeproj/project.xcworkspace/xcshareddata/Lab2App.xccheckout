@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>1C25B0C9-F82A-4A5A-9F86-FE676E568652</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Lab2App</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>1B34C55BB0D05A558424DDEBFBFE4DED93D78142</key>
 		<string>https://github.com/Nevaan/swift_labs.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>lab2/Lab2App/Lab2App.xcodeproj/project.xcworkspace</string>
+	<string>lab2/Lab2App/Lab2App.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1B34C55BB0D05A558424DDEBFBFE4DED93D78142</key>
