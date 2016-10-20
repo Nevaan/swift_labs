@@ -9,12 +9,49 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    //MARK: Properties
+    
+    @IBOutlet weak var currentArtist: UITextField!
+    
+    @IBOutlet weak var currentTitle: UITextField!
+    
+    @IBOutlet weak var currentGenre: UITextField!
+    
+    @IBOutlet weak var currentYear: UITextField!
+    
+    @IBOutlet weak var currentRating: UILabel!
+    
+    @IBOutlet weak var ratingStepper: UIStepper!
+    
+    var currentRecord = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let plistCatPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist");
+        var albums = NSArray?()
+        albums = NSArray(contentsOfFile: plistCatPath!)
+      
+        currentArtist.text = albums?[currentRecord]["artist"] as! String
+        currentTitle.text = albums?[currentRecord]["title"] as! String
+        currentGenre.text = albums?[currentRecord]["genre"] as! String
+        
+      
+        ratingStepper.maximumValue = 5
+        ratingStepper.wraps = true
+        ratingStepper.autorepeat = true
+        
+        
+        
+        print(albums)
+        
     }
 
+    @IBAction func stepperValueChanged(sender: UIStepper) {
+        currentRating.text = Int(sender.value).description
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
