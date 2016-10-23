@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let plistCatPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist");
+        let plistCatPath = Bundle.main.path(forResource: "albums", ofType: "plist");
         var albums = NSArray?()
         albums = NSArray(contentsOfFile: plistCatPath!)
       
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         
     }
 
-    @IBAction func stepperValueChanged(sender: UIStepper) {
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
         currentRating.text = Int(sender.value).description
     }
     

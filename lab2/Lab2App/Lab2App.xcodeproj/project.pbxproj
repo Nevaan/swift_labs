@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC7FDD861DB8AF930064A77E /* albums.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC7FDD851DB8AF930064A77E /* albums.plist */; settings = {ASSET_TAGS = (); }; };
+		AC7FDD861DB8AF930064A77E /* albums.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC7FDD851DB8AF930064A77E /* albums.plist */; };
 		ACF1613E1DAF74C600552C65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1613D1DAF74C600552C65 /* AppDelegate.swift */; };
 		ACF161401DAF74C600552C65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1613F1DAF74C600552C65 /* ViewController.swift */; };
 		ACF161431DAF74C600552C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF161411DAF74C600552C65 /* Main.storyboard */; };
@@ -165,9 +165,11 @@
 				TargetAttributes = {
 					ACF161371DAF74C500552C65 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 					};
 					ACF1614C1DAF74C600552C65 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 						TestTargetID = ACF161371DAF74C500552C65;
 					};
 				};
@@ -350,6 +352,7 @@
 				INFOPLIST_FILE = Lab2App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -360,6 +363,7 @@
 				INFOPLIST_FILE = Lab2App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -378,6 +382,7 @@
 				INFOPLIST_FILE = Lab2AppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lab2App.app/Lab2App";
 			};
 			name = Debug;
@@ -393,6 +398,7 @@
 				INFOPLIST_FILE = Lab2AppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lab2App.app/Lab2App";
 			};
 			name = Release;
