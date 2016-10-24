@@ -62,9 +62,16 @@ class ViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< Updated upstream
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        let plistCatPath = Bundle.main.path(forResource: "albums", ofType: "plist");
+        var albums = NSArray?()
+=======
 		
         let plistCatPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist");
 		
+>>>>>>> Stashed changes
         albums = NSArray(contentsOfFile: plistCatPath!)
       
 		updateFields()
@@ -77,6 +84,13 @@ class ViewController: UIViewController {
         
     }
 
+<<<<<<< Updated upstream
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        currentRating.text = Int(sender.value).description
+    }
+    
+=======
+>>>>>>> Stashed changes
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
