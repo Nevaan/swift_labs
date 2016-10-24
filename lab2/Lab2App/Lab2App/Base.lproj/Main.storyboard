@@ -118,6 +118,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="artistFIeldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="IqA-9P-VxO"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -173,6 +176,7 @@
                         <outlet property="prevButton" destination="IkH-GV-X3X" id="xHg-iF-Wes"/>
                         <outlet property="ratingStepper" destination="X7P-eh-HmP" id="SXV-3X-0Ym"/>
                         <outlet property="recordCount" destination="32p-5Z-eGO" id="R5x-zf-aCs"/>
+                        <outlet property="saveButton" destination="5RJ-PJ-I3q" id="4XH-bx-fiI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

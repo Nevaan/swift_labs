@@ -29,6 +29,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var recordCount: UILabel!
     
+    @IBOutlet weak var saveButton: UIButton!
+    
+    
     @IBAction func stepperValueChanged(sender: UIStepper) {
          currentRating.text = Int(sender.value).description
     }
@@ -45,6 +48,7 @@ class ViewController: UIViewController {
 			prevButton.enabled = true
 		}
         updateRecordCounter()
+        saveButton.enabled = false
 	}
 	
 	@IBAction func prevButtonAction(sender: UIButton) {
@@ -59,6 +63,7 @@ class ViewController: UIViewController {
 			nextButton.enabled = true
 		}
         updateRecordCounter()
+        saveButton.enabled = false
 	}
     
     var currentRecord = 0
@@ -79,8 +84,12 @@ class ViewController: UIViewController {
         
         
         prevButton.enabled = false
+        saveButton.enabled = false
         
         
+    }
+    @IBAction func artistFIeldChanged(sender: UITextField) {
+        saveButton.enabled = true
     }
 
     override func didReceiveMemoryWarning() {
