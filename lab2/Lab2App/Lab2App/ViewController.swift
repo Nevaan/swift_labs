@@ -27,6 +27,8 @@ class ViewController: UIViewController {
     
 	@IBOutlet weak var nextButton: UIButton!
     
+    @IBOutlet weak var recordCount: UILabel!
+    
     @IBAction func stepperValueChanged(sender: UIStepper) {
          currentRating.text = Int(sender.value).description
     }
@@ -42,6 +44,7 @@ class ViewController: UIViewController {
 		if (currentRecord > 0) {
 			prevButton.enabled = true
 		}
+        updateRecordCounter()
 	}
 	
 	@IBAction func prevButtonAction(sender: UIButton) {
@@ -55,6 +58,7 @@ class ViewController: UIViewController {
 		if(currentRecord < albums?.count) {
 			nextButton.enabled = true
 		}
+        updateRecordCounter()
 	}
     
     var currentRecord = 0
@@ -68,9 +72,11 @@ class ViewController: UIViewController {
         albums = NSArray(contentsOfFile: plistCatPath!)
       
 		updateFields()
-		ratingStepper.maximumValue = 5
+		updateRecordCounter()
+        ratingStepper.maximumValue = 5
         ratingStepper.wraps = true
         ratingStepper.autorepeat = true
+        
         
         prevButton.enabled = false
         
@@ -89,6 +95,10 @@ class ViewController: UIViewController {
 		currentYear.text =  String((albums?[currentRecord]["date"]!)!)
 		currentRating.text = String((albums?[currentRecord]["rating"]!)!)
 	}
+    
+    func updateRecordCounter() {
+        recordCount.text = "Record \(currentRecord + 1) of \((albums?.count)!)"
+    }
 	
 }
 

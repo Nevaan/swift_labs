@@ -172,6 +172,7 @@
                         <outlet property="nextButton" destination="SNc-Cu-Zp8" id="KeH-ZC-hOF"/>
                         <outlet property="prevButton" destination="IkH-GV-X3X" id="xHg-iF-Wes"/>
                         <outlet property="ratingStepper" destination="X7P-eh-HmP" id="SXV-3X-0Ym"/>
+                        <outlet property="recordCount" destination="32p-5Z-eGO" id="R5x-zf-aCs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
