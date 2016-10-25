@@ -34,21 +34,18 @@ class ViewController: UIViewController {
 	var currentRecord = 0
 	var albums: NSMutableArray = []
 	var albumsDocPath: String = ""
+	let fileManager = NSFileManager.defaultManager()
+	let plistCatPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist");
+	let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let plistCatPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist");
-		let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+		loadDataFromFile()
 		
-		albumsDocPath = documentsPath.stringByAppendingString("/albums.plist")
-		let fileManager = NSFileManager.defaultManager()
-		if !fileManager.fileExistsAtPath(albumsDocPath) {
-			try? fileManager.copyItemAtPath(plistCatPath!, toPath: albumsDocPath)
-		}
-		
-		albums = NSMutableArray(contentsOfFile: albumsDocPath)!
-		
+		/* Observing application state to save/load data */
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.saveDataToFile), name: UIApplicationWillResignActiveNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.loadDataFromFile), name: UIApplicationDidBecomeActiveNotification, object: nil)
 		
 		updateFields()
 		updateRecordCounter()
@@ -115,7 +112,10 @@ class ViewController: UIViewController {
 			]
 			)
 			albums.addObject(newRecord)
+			recordCount.text = "Record \(currentRecord) of \((albums.count))"
 		}
+		
+		saveButton.enabled = false
 	}
 	
 
@@ -171,6 +171,26 @@ class ViewController: UIViewController {
     func albumDataChanged() {
         saveButton.enabled = true
     }
+	
+	func saveDataToFile(){
+		print("O matko bosko co to się staneło!")
+		print(albumsDocPath)
+		albums.writeToFile(albumsDocPath, atomically: true)
+		
+	}
+	
+	func loadDataFromFile() {
+		print("Hahaha skurwysyny, i co teraz?")
+		albumsDocPath = documentsPath.stringByAppendingString("/albums.plist")
+		
+		if !fileManager.fileExistsAtPath(albumsDocPath) {
+			try? fileManager.copyItemAtPath(plistCatPath!, toPath: albumsDocPath)
+		}
+		
+		albums = NSMutableArray(contentsOfFile: albumsDocPath)!
+		
+		print(albums)
+	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
