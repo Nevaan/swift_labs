@@ -30,16 +30,45 @@ class ViewController: UIViewController {
     @IBOutlet weak var recordCount: UILabel!
     
     @IBOutlet weak var saveButton: UIButton!
-    
-    
-    @IBAction func stepperValueChanged(sender: UIStepper) {
-         currentRating.text = Int(sender.value).description
-    }
+	
+	var currentRecord = 0
+	var albums: NSMutableArray = []
+	var albumsDocPath: String = ""
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		let plistCatPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist");
+		let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+		
+		albumsDocPath = documentsPath.stringByAppendingString("/albums.plist")
+		let fileManager = NSFileManager.defaultManager()
+		if !fileManager.fileExistsAtPath(albumsDocPath) {
+			try? fileManager.copyItemAtPath(plistCatPath!, toPath: albumsDocPath)
+		}
+		
+		albums = NSMutableArray(contentsOfFile: albumsDocPath)!
+		
+		
+		updateFields()
+		updateRecordCounter()
+		ratingStepper.maximumValue = 5
+		ratingStepper.wraps = true
+		ratingStepper.autorepeat = true
+		
+		
+		prevButton.enabled = false
+		saveButton.enabled = false
+		
+		
+	}
+	
+	/* Button actions */
 	
 	@IBAction func nextButtonAction(sender: UIButton) {
 		currentRecord += 1
 		updateFields()
-		if (currentRecord + 1 >= albums?.count) {
+		if (currentRecord + 1 >= albums.count) {
 			nextButton.enabled = false
 		} else {
 			nextButton.enabled = true
@@ -47,8 +76,8 @@ class ViewController: UIViewController {
 		if (currentRecord > 0) {
 			prevButton.enabled = true
 		}
-        updateRecordCounter()
-        saveButton.enabled = false
+		updateRecordCounter()
+		saveButton.enabled = false
 	}
 	
 	@IBAction func prevButtonAction(sender: UIButton) {
@@ -59,36 +88,44 @@ class ViewController: UIViewController {
 		} else {
 			prevButton.enabled = true
 		}
-		if(currentRecord < albums?.count) {
+		if(currentRecord < albums.count) {
 			nextButton.enabled = true
 		}
-        updateRecordCounter()
-        saveButton.enabled = false
-	}
-    
-    var currentRecord = 0
-    var albums = NSArray?()
-	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		
-        let plistCatPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist");
-		
-        albums = NSArray(contentsOfFile: plistCatPath!)
-      
-		updateFields()
 		updateRecordCounter()
-        ratingStepper.maximumValue = 5
-        ratingStepper.wraps = true
-        ratingStepper.autorepeat = true
-        
-        
-        prevButton.enabled = false
-        saveButton.enabled = false
-        
-        
+		saveButton.enabled = false
+	}
+	
+	
+	@IBAction func newButtonAction(sender: UIButton) {
+		clearFields()
+		recordCount.text = "New record"
+		currentRecord = albums.count + 1
+		saveButton.enabled = true
+	}
+	
+	@IBAction func saveButtonAction(sender: UIButton) {
+		if(currentRecord > albums.count) {
+			let newRecord = NSDictionary(dictionary:
+			[
+				"artist": currentArtist.text!,
+				"date": currentYear.text!,
+				"genre": currentGenre.text!,
+				"rating": currentRating.text!,
+				"title": currentTitle.text!
+			]
+			)
+			albums.addObject(newRecord)
+		}
+	}
+	
+
+	/* Listeners */
+	
+    @IBAction func stepperValueChanged(sender: UIStepper) {
+         currentRating.text = Int(sender.value).description
     }
-    
+	
+	
     @IBAction func artistFIeldChanged(sender: UITextField) {
         albumDataChanged()
     }
@@ -108,28 +145,36 @@ class ViewController: UIViewController {
     @IBAction func ratingFieldChanged(sender: UIStepper) {
         albumDataChanged()
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+	
+	/* Utils */
+	
 	func updateFields() {
-		currentArtist.text = albums?[currentRecord]["artist"] as? String
-		currentTitle.text = albums?[currentRecord]["title"] as? String
-		currentGenre.text = albums?[currentRecord]["genre"] as? String
-		currentYear.text =  String((albums?[currentRecord]["date"]!)!)
-		currentRating.text = String((albums?[currentRecord]["rating"]!)!)
+		currentArtist.text = albums[currentRecord]["artist"] as? String
+		currentTitle.text = albums[currentRecord]["title"] as? String
+		currentGenre.text = albums[currentRecord]["genre"] as? String
+		currentYear.text =  String((albums[currentRecord]["date"]!)!)
+		currentRating.text = String((albums[currentRecord]["rating"]!)!)
+	}
+	
+	func clearFields() {
+		currentArtist.text = ""
+		currentTitle.text = ""
+		currentGenre.text = ""
+		currentYear.text = ""
+		currentRating.text = "0"
 	}
     
     func updateRecordCounter() {
-        recordCount.text = "Record \(currentRecord + 1) of \((albums?.count)!)"
+        recordCount.text = "Record \(currentRecord + 1) of \((albums.count))"
     }
     
     func albumDataChanged() {
         saveButton.enabled = true
     }
 	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
 }
 
