@@ -88,10 +88,28 @@ class ViewController: UIViewController {
         
         
     }
+    
     @IBAction func artistFIeldChanged(sender: UITextField) {
-        saveButton.enabled = true
+        albumDataChanged()
     }
 
+    @IBAction func titleFieldChanged(sender: UITextField) {
+        albumDataChanged()
+    }
+    
+    @IBAction func genreFieldChanged(sender: UITextField) {
+        albumDataChanged()
+    }
+    
+    @IBAction func yearFieldChanged(sender: UITextField) {
+        albumDataChanged()
+    }
+    
+    @IBAction func ratingFieldChanged(sender: UIStepper) {
+        albumDataChanged()
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -107,6 +125,10 @@ class ViewController: UIViewController {
     
     func updateRecordCounter() {
         recordCount.text = "Record \(currentRecord + 1) of \((albums?.count)!)"
+    }
+    
+    func albumDataChanged() {
+        saveButton.enabled = true
     }
 	
 }

@@ -43,16 +43,25 @@
                                 <frame key="frameInset" minX="121" minY="66" width="463" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="titleFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="2PK-r9-G96"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4EN-8L-JwY">
                                 <frame key="frameInset" minX="121" minY="104" width="463" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="genreFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="YKm-7f-YS6"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PpK-gi-QHY">
                                 <frame key="frameInset" minX="121" minY="142" width="463" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="yearFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="rrl-uC-NOx"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBl-pR-QEo">
                                 <frame key="frameInset" minX="16" minY="188" width="50" height="21"/>
@@ -69,6 +78,7 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="X7P-eh-HmP">
                                 <frame key="frameInset" minX="490" minY="180" width="94" height="29"/>
                                 <connections>
+                                    <action selector="ratingFieldChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="6Vg-9n-Y5G"/>
                                     <action selector="stepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Wxj-rO-pFQ"/>
                                 </connections>
                             </stepper>
