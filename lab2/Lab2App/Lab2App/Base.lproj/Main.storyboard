@@ -112,6 +112,9 @@
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xe3-X7-1u1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V20-GJ-cfl">
                                 <state key="normal" title="New">
@@ -176,6 +179,7 @@
                         <outlet property="currentRating" destination="rZ5-Rz-pG2" id="Y7g-Qk-ZHI"/>
                         <outlet property="currentTitle" destination="wFl-1m-6nL" id="IYv-hL-O4g"/>
                         <outlet property="currentYear" destination="PpK-gi-QHY" id="vFF-wY-18S"/>
+                        <outlet property="deleteButton" destination="Fb3-PM-iTU" id="6Gk-Gg-Pmh"/>
                         <outlet property="nextButton" destination="SNc-Cu-Zp8" id="KeH-ZC-hOF"/>
                         <outlet property="prevButton" destination="IkH-GV-X3X" id="xHg-iF-Wes"/>
                         <outlet property="ratingStepper" destination="X7P-eh-HmP" id="SXV-3X-0Ym"/>

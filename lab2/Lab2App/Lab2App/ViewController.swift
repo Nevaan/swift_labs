@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentArtist: UITextField!
     
     @IBOutlet weak var currentTitle: UITextField!
-    
+	
     @IBOutlet weak var currentGenre: UITextField!
     
     @IBOutlet weak var currentYear: UITextField!
@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var recordCount: UILabel!
     
     @IBOutlet weak var saveButton: UIButton!
+	
+	@IBOutlet weak var deleteButton: UIButton!
 	
 	var currentRecord = 0
 	var albums: NSMutableArray = []
@@ -53,11 +55,8 @@ class ViewController: UIViewController {
 		ratingStepper.wraps = true
 		ratingStepper.autorepeat = true
 		
-		
 		prevButton.enabled = false
 		saveButton.enabled = false
-		
-		
 	}
 	
 	/* Button actions */
@@ -113,11 +112,24 @@ class ViewController: UIViewController {
 			)
 			albums.addObject(newRecord)
 			recordCount.text = "Record \(currentRecord) of \((albums.count))"
+		} else {
+			let updatedRecord:NSMutableDictionary = albums[currentRecord] as! NSMutableDictionary
+			updatedRecord.setValue(currentArtist.text!, forKey: "artist")
+			updatedRecord.setValue(currentYear.text, forKey: "date")
+			updatedRecord.setValue(currentGenre.text, forKey: "genre")
+			updatedRecord.setValue(currentRating.text, forKey: "rating")
+			updatedRecord.setValue(currentTitle.text, forKey: "title")
 		}
 		
 		saveButton.enabled = false
 	}
 	
+	
+	@IBAction func deleteButtonAction(sender: UIButton) {
+		albums.removeObjectAtIndex(currentRecord)
+		updateFields()
+		recordCount.text = "Record \(currentRecord + 1) of \((albums.count))"
+	}
 
 	/* Listeners */
 	
@@ -173,14 +185,10 @@ class ViewController: UIViewController {
     }
 	
 	func saveDataToFile(){
-		print("O matko bosko co to się staneło!")
-		print(albumsDocPath)
 		albums.writeToFile(albumsDocPath, atomically: true)
-		
 	}
 	
 	func loadDataFromFile() {
-		print("Hahaha skurwysyny, i co teraz?")
 		albumsDocPath = documentsPath.stringByAppendingString("/albums.plist")
 		
 		if !fileManager.fileExistsAtPath(albumsDocPath) {
@@ -188,8 +196,6 @@ class ViewController: UIViewController {
 		}
 		
 		albums = NSMutableArray(contentsOfFile: albumsDocPath)!
-		
-		print(albums)
 	}
 	
 	override func didReceiveMemoryWarning() {
