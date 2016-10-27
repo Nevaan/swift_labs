@@ -43,21 +43,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="titleFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="2PK-r9-G96"/>
+                                    <action selector="albumDataChangeListener:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Lin-Am-oKt"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4EN-8L-JwY">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="genreFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="YKm-7f-YS6"/>
+                                    <action selector="albumDataChangeListener:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="cT6-9L-ZtR"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PpK-gi-QHY">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="yearFieldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="rrl-uC-NOx"/>
+                                    <action selector="albumDataChangeListener:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="BGh-mk-Ryj"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBl-pR-QEo">
@@ -67,6 +67,7 @@
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="X7P-eh-HmP">
                                 <connections>
+                                    <action selector="albumDataChangeListener:" destination="BYZ-38-t0r" eventType="valueChanged" id="RE4-62-1qq"/>
                                     <action selector="ratingFieldChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="6Vg-9n-Y5G"/>
                                     <action selector="stepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Wxj-rO-pFQ"/>
                                 </connections>
@@ -92,7 +93,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="artistFIeldChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="IqA-9P-VxO"/>
+                                    <action selector="albumDataChangeListener:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="YTu-Cr-XOX"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ5-Rz-pG2">

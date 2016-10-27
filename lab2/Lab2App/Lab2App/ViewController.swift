@@ -136,25 +136,8 @@ class ViewController: UIViewController {
     @IBAction func stepperValueChanged(sender: UIStepper) {
          currentRating.text = Int(sender.value).description
     }
-	
-	
-    @IBAction func artistFIeldChanged(sender: UITextField) {
-        albumDataChanged()
-    }
-
-    @IBAction func titleFieldChanged(sender: UITextField) {
-        albumDataChanged()
-    }
-    
-    @IBAction func genreFieldChanged(sender: UITextField) {
-        albumDataChanged()
-    }
-    
-    @IBAction func yearFieldChanged(sender: UITextField) {
-        albumDataChanged()
-    }
-    
-    @IBAction func ratingFieldChanged(sender: UIStepper) {
+		
+    @IBAction func albumDataChangeListener(_ sender: AnyObject) {
         albumDataChanged()
     }
 	
