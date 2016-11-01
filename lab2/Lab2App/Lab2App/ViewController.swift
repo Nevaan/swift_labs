@@ -33,6 +33,8 @@ class ViewController: UIViewController {
 	
 	@IBOutlet weak var deleteButton: UIButton!
 	
+	@IBOutlet weak var newButton: UIButton!
+	
 	var currentRecord = 0
 	var albums: NSMutableArray = []
 	var albumsDocPath: String = ""
@@ -62,18 +64,33 @@ class ViewController: UIViewController {
 	/* Button actions */
 	
 	@IBAction func nextButtonAction(sender: UIButton) {
+		
+		
 		currentRecord += 1
-		updateFields()
-		if (currentRecord + 1 >= albums.count) {
+		
+		if (currentRecord + 1 == albums.count) {
+			updateFields()
+			//nextButton.enabled = false
+		} else if (currentRecord + 1 > albums.count){
+			clearFields()
+			recordCount.text = "New record"
+			//currentRecord = albums.count + 1
+			saveButton.enabled = false
 			nextButton.enabled = false
+			
 		} else {
+			updateFields()
 			nextButton.enabled = true
 		}
 		if (currentRecord > 0) {
 			prevButton.enabled = true
 		}
-		updateRecordCounter()
-		saveButton.enabled = false
+		
+		if (currentRecord < albums.count) {
+			updateRecordCounter()
+			saveButton.enabled = false
+		}
+		
 	}
 	
 	@IBAction func prevButtonAction(sender: UIButton) {
@@ -100,7 +117,7 @@ class ViewController: UIViewController {
 	}
 	
 	@IBAction func saveButtonAction(sender: UIButton) {
-		if(currentRecord > albums.count) {
+		if(currentRecord >= albums.count) {
 			let newRecord = NSDictionary(dictionary:
 			[
 				"artist": currentArtist.text!,
@@ -111,7 +128,9 @@ class ViewController: UIViewController {
 			]
 			)
 			albums.addObject(newRecord)
-			recordCount.text = "Record \(currentRecord) of \((albums.count))"
+			recordCount.text = "Record \(currentRecord + 1) of \((albums.count))"
+
+			
 		} else {
 			let updatedRecord:NSMutableDictionary = albums[currentRecord] as! NSMutableDictionary
 			updatedRecord.setValue(currentArtist.text!, forKey: "artist")
@@ -122,13 +141,32 @@ class ViewController: UIViewController {
 		}
 		
 		saveButton.enabled = false
+		nextButton.enabled = true
+		deleteButton.enabled = true
+		newButton.enabled = true
 	}
 	
 	
 	@IBAction func deleteButtonAction(sender: UIButton) {
-		albums.removeObjectAtIndex(currentRecord)
-		updateFields()
-		recordCount.text = "Record \(currentRecord + 1) of \((albums.count))"
+		
+		if (albums.count == 1 && currentRecord == 0) {
+			albums.removeObjectAtIndex(currentRecord)
+			clearFields()
+			nextButton.enabled = false
+			prevButton.enabled = false
+			deleteButton.enabled = false
+			newButton.enabled = false
+			recordCount.text = "New record"
+			
+		} else {
+			if(currentRecord < albums.count) {
+				albums.removeObjectAtIndex(currentRecord)
+			}
+			updateFields()
+			recordCount.text = "Record \(currentRecord + 1) of \((albums.count))"
+			nextButton.enabled = true
+		}
+		saveButton.enabled = false
 	}
 
 	/* Listeners */
@@ -144,11 +182,18 @@ class ViewController: UIViewController {
 	/* Utils */
 	
 	func updateFields() {
+		if(currentRecord < albums.count) {
 		currentArtist.text = albums[currentRecord]["artist"] as? String
 		currentTitle.text = albums[currentRecord]["title"] as? String
 		currentGenre.text = albums[currentRecord]["genre"] as? String
 		currentYear.text =  String((albums[currentRecord]["date"]!)!)
 		currentRating.text = String((albums[currentRecord]["rating"]!)!)
+		}
+		else {
+			currentRecord = currentRecord - 1
+			updateFields()			
+		}
+		
 	}
 	
 	func clearFields() {
