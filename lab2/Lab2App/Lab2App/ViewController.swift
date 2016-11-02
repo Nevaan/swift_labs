@@ -90,6 +90,7 @@ class ViewController: UIViewController {
 			updateRecordCounter()
 			saveButton.enabled = false
 		}
+		ratingStepper.value = 0
 		
 	}
 	
@@ -106,19 +107,23 @@ class ViewController: UIViewController {
 		}
 		updateRecordCounter()
 		saveButton.enabled = false
+		ratingStepper.value = 0
 	}
 	
 	
 	@IBAction func newButtonAction(sender: UIButton) {
 		clearFields()
 		recordCount.text = "New record"
-		currentRecord = albums.count + 1
-		saveButton.enabled = true
+		currentRecord = albums.count
+		saveButton.enabled = false
+		newButton.enabled = false
+		prevButton.enabled = false
+		nextButton.enabled = false
 	}
 	
 	@IBAction func saveButtonAction(sender: UIButton) {
 		if(currentRecord >= albums.count) {
-			let newRecord = NSDictionary(dictionary:
+			let newRecord = NSMutableDictionary(dictionary:
 			[
 				"artist": currentArtist.text!,
 				"date": currentYear.text!,
@@ -144,6 +149,9 @@ class ViewController: UIViewController {
 		nextButton.enabled = true
 		deleteButton.enabled = true
 		newButton.enabled = true
+		if (currentRecord > 0) {
+			prevButton.enabled = true
+		}
 	}
 	
 	
@@ -165,6 +173,10 @@ class ViewController: UIViewController {
 			updateFields()
 			recordCount.text = "Record \(currentRecord + 1) of \((albums.count))"
 			nextButton.enabled = true
+		}
+		
+		if(currentRecord > 0) {
+			prevButton.enabled = true
 		}
 		saveButton.enabled = false
 	}
@@ -201,6 +213,7 @@ class ViewController: UIViewController {
 		currentTitle.text = ""
 		currentGenre.text = ""
 		currentYear.text = ""
+		ratingStepper.value = 0
 		currentRating.text = "0"
 	}
     
