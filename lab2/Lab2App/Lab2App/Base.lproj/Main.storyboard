@@ -50,25 +50,16 @@
                                 <rect key="frame" x="120.5" y="66" width="238.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="albumDataChangeListener:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Lin-Am-oKt"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4EN-8L-JwY">
                                 <rect key="frame" x="120.5" y="104" width="238.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="albumDataChangeListener:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="cT6-9L-ZtR"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PpK-gi-QHY">
                                 <rect key="frame" x="121" y="142" width="238" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="albumDataChangeListener:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="BGh-mk-Ryj"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBl-pR-QEo">
                                 <rect key="frame" x="16" y="186" width="49" height="20.5"/>
@@ -78,37 +69,24 @@
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="X7P-eh-HmP">
                                 <rect key="frame" x="265" y="180" width="94" height="29"/>
-                                <connections>
-                                    <action selector="albumDataChangeListener:" destination="BYZ-38-t0r" eventType="valueChanged" id="RE4-62-1qq"/>
-                                    <action selector="stepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Wxj-rO-pFQ"/>
-                                </connections>
                             </stepper>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkH-GV-X3X">
                                 <rect key="frame" x="16" y="214.5" width="31" height="30"/>
                                 <state key="normal" title="Prev">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="prevButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TJl-0K-RO7"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNc-Cu-Zp8">
                                 <rect key="frame" x="327" y="217" width="32" height="30"/>
                                 <state key="normal" title="Next">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="nextButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gfi-n4-Rma"/>
-                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jSJ-B7-Kso">
                                 <rect key="frame" x="120.5" y="28" width="238.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="albumDataChangeListener:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="YTu-Cr-XOX"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ5-Rz-pG2">
                                 <rect key="frame" x="120" y="188" width="0.0" height="0.0"/>
@@ -121,27 +99,18 @@
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="saveButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S2N-Qm-QYj"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fb3-PM-iTU">
                                 <rect key="frame" x="164" y="282.5" width="45" height="30"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="deleteButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xe3-X7-1u1"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V20-GJ-cfl">
                                 <rect key="frame" x="171.5" y="306.5" width="31" height="30"/>
                                 <state key="normal" title="New">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="newButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V6Q-j4-0bk"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record x of y" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32p-5Z-eGO">
                                 <rect key="frame" x="138" y="344.5" width="100.5" height="20.5"/>
@@ -193,20 +162,6 @@
                             <constraint firstItem="SNc-Cu-Zp8" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="zJm-65-ZEV"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="currentArtist" destination="jSJ-B7-Kso" id="EZy-mR-Zu6"/>
-                        <outlet property="currentGenre" destination="4EN-8L-JwY" id="AOg-YZ-O6b"/>
-                        <outlet property="currentRating" destination="rZ5-Rz-pG2" id="Y7g-Qk-ZHI"/>
-                        <outlet property="currentTitle" destination="wFl-1m-6nL" id="IYv-hL-O4g"/>
-                        <outlet property="currentYear" destination="PpK-gi-QHY" id="vFF-wY-18S"/>
-                        <outlet property="deleteButton" destination="Fb3-PM-iTU" id="6Gk-Gg-Pmh"/>
-                        <outlet property="newButton" destination="V20-GJ-cfl" id="LEX-qW-UoP"/>
-                        <outlet property="nextButton" destination="SNc-Cu-Zp8" id="KeH-ZC-hOF"/>
-                        <outlet property="prevButton" destination="IkH-GV-X3X" id="xHg-iF-Wes"/>
-                        <outlet property="ratingStepper" destination="X7P-eh-HmP" id="SXV-3X-0Ym"/>
-                        <outlet property="recordCount" destination="32p-5Z-eGO" id="R5x-zf-aCs"/>
-                        <outlet property="saveButton" destination="5RJ-PJ-I3q" id="4XH-bx-fiI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
